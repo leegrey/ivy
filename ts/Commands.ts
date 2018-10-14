@@ -176,7 +176,6 @@ module Ivy.Commands {
 
 			case "func" : process_func(commandInfo, source); break;
 
-			// TODO:
 			case "embed" : process_embed(commandInfo, source); break;
 		}
 	}
@@ -235,7 +234,6 @@ module Ivy.Commands {
 		//eatCommandsUntilToken(source, "endif");
 	}	
 
-	// TODO:: generically evaluate, including branching to eval and func conditions
 	function evaluate_condition(argumenString:string):boolean {
 		var conditionString = findContentInBrackets(argumenString);
 		if (conditionString != null) {
@@ -272,9 +270,7 @@ module Ivy.Commands {
 			log("Error at", source.location, "- `if` must be immediately followed by else, elif, or endif");
 			return;
 		}
-		var conditionalResult:boolean = false;
-		// TODO: should I pass the entire command?
-		// might need to if I want to support {if ! flag}
+		var conditionalResult:boolean = false;		
 		var conditionalName = commandInfo.tokens[1];
 		var conditionalResult = evaluate_condition(commandInfo.argumentString);
 
