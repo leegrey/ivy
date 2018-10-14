@@ -150,14 +150,18 @@ To clear the text of the story displayed so far:
 
 `{clear}`
 
-### Calling custom functions
+### Calling custom JavaScript functions
 
-`{if func myCustomFunction(arg1, arg2)}`
+Javascript functions can be bound to custom Ivy commands using the `Ivy.addFunction()` funcyion.
 
 Attach custom function to Ivy (within javascript context):
 `Ivy.addFunction(function(argumentString){});`
 
-The arguments are sent to the function as a string:
+Call the funcion from the Ivy story:
+
+`{if func myCustomFunction(arg1, arg2)}`
+
+The arguments are sent to the javascript function:
 
 `{func myCustomFunction(20, 23, variable_name)}`
 
