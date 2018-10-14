@@ -44,9 +44,11 @@ If you want to rebuild the library from source, install the [typescript](https:/
 Nodes are indicated with `===` symbol, followed by a node name.
 
 === name_of_node
+
 The `[red door](some_other_node)` leads to another node.
 
 === some_other_node
+
 This is another node.
 
 *Link Types*
