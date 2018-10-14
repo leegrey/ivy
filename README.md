@@ -152,10 +152,12 @@ To clear the text of the story displayed so far:
 
 ### Calling custom JavaScript functions
 
-Javascript functions can be bound to custom Ivy commands using the `Ivy.addFunction()` funcyion.
+Javascript functions can be bound to custom Ivy commands using the `Ivy.registerFunction()` function.
+
+Javascript functions can be used to generate passages of text, or perform other more complex logic outside the scope of Ivy's own basic scripting capabilities.
 
 Attach custom function to Ivy (within javascript context):
-`Ivy.addFunction(function(argumentString){});`
+`Ivy.registerFunction(function(argumentString){});`
 
 Call the funcion from the Ivy story:
 
