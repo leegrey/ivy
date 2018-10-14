@@ -38,6 +38,8 @@ Ivy also depends on jquery, jquery.scrollTo.js, marked.js, and jstorage.js, whic
 
 The easiest way to get started writing Ivy stories is to simply clone the `www` directory containing the sample story. This template is all you need to create an entire Ivy story. The html file will run in a browser just by double clicking.
 
+### Bulding
+
 If you want to rebuild the library from source, install the [typescript](https://www.typescriptlang.org/) compiler, and run the build_typescript.sh script, or just build directly with:
 
 ```tsc --out ./www/js/ivy.js ./ts/Ivy.ts```
