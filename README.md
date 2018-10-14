@@ -11,7 +11,7 @@ The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/
 Ivy runs in the browser, and Ivy text can be formatted using [Markdown](https://daringfireball.net/projects/markdown/syntax).
 
 
-### Try the Demo
+### Try a Demo
 
 See it in action [here](http://leegrey.github.io/ivy/example/).
 
@@ -29,7 +29,7 @@ For serious IF development, I highly recommend Inkle's [Ink](https://github.com/
 - Basic math operations
 - Conditionals with basic expression evaluation
 - Bind and call javascript functions
-- Persistent state
+- Persistent state, using LocalStorage
 - Supports Markdown text formatting
 - MIT License
 
