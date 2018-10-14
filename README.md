@@ -157,6 +157,7 @@ Javascript functions can be bound to custom Ivy commands using the `Ivy.register
 Javascript functions can be used to generate passages of text, or perform other more complex logic outside the scope of Ivy's own basic scripting capabilities.
 
 Attach custom function to Ivy (within javascript context):
+
 `Ivy.registerFunction(function(argumentString){});`
 
 Call the funcion from the Ivy story:
