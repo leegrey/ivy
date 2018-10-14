@@ -10,6 +10,11 @@ The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/
 
 Ivy runs in the browser, and Ivy text can be formatted using [Markdown](https://daringfireball.net/projects/markdown/syntax).
 
+
+### Try the Demo
+
+See it in action [here](http://leegrey.github.io/ivy/example/).
+
 ### Why?
 
 Given how many awesome IF technologies are now available, one might ask why anyone would bother making another one. The answer to this is that Ivy has been a slow-burn project in progress for a number of years, developed in short bursts, often during holidays or after being inspired by some superb piece of interactive fiction, narrative games in general, or by trying out some excellent IF tech. Ivy is a love letter to the Interactive Fiction genre, and a personal education in writing a parser.
