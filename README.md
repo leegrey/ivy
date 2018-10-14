@@ -8,7 +8,7 @@ The parser is written in TypeScript, and runs in the browser.
 
 The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/ink), but it supports hyperlink style links within the text (like those in [Twine](https://twinery.org/)), unlike Ink's option-based system where links can only be placed after the body text of a node.
 
-Ivy runs in the browser, and Ivy text can be formatted using Markdown.
+Ivy runs in the browser, and Ivy text can be formatted using [Markdown](https://daringfireball.net/projects/markdown/syntax).
 
 ### Why?
 
