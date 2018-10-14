@@ -1,10 +1,12 @@
 ## Ivy
 
-Ivy is a small language for writing interactive fiction. 
+Ivy is a language for writing interactive fiction.
 
-The Ivy syntax is a simple markup around plaintext. The parser is written in TypeScript, which transpiles to javascript and runs in the browser.
+The Ivy syntax is a simple markup around plaintext. 
 
-Ivy syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/ink), but supports hyperlink style links within the text (similar to [Twine](https://twinery.org/)), unlike Ink's option-based system where links can only be placed after the body text of a node.
+The parser is written in TypeScript, and runs in the browser.
+
+The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/ink), but it supports hyperlink style links within the text (like those in [Twine](https://twinery.org/)), unlike Ink's option-based system where links can only be placed after the body text of a node.
 
 ### Why?
 
@@ -156,4 +158,3 @@ A freezing mist flows out into the hall, and frost immediately begins to form on
 ...
 
 ```
-
