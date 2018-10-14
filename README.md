@@ -160,7 +160,7 @@ Attach custom function to Ivy (within javascript context):
 
 `Ivy.registerFunction(function(argumentString){});`
 
-Call the funcion from the Ivy story:
+Call the function from the Ivy story:
 
 `{if func myCustomFunction(arg1, arg2)}`
 
