@@ -51,7 +51,7 @@ The `[red door](some_other_node)` leads to another node.
 
 This is another node.
 
-*Link Types*
+### Link Types
 
 Expiring node, link can only be used once (default behaviour)
 `[Link text](node_name)`
