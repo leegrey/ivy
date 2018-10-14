@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)file:///Users/lee/Dropbox/dev/Ivy/www/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+	 
+	<title>Ivy</title> 
+	<meta name="author" content="Lee Grey"> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="./Ivy_files/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<!-- ivy dependancies -->
+	<script src="./Ivy_files/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./Ivy_files/jstorage.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./Ivy_files/jquery.scrollTo.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./Ivy_files/marked.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!-- ivy -->
+	<script src="./Ivy_files/ivy.js" type="text/javascript" charset="utf-8"></script>
+
+	<style type="text/css">
+
+		body {
+			color: #bbb;
+			background: #333;
+		}
+
+		a:link, a:visited {
+		    color: #c55;
+		}
+		a:hover {
+		    color: #f88;
+		    text-decoration: none;
+		}
+
+		#main-container {
+			margin:50px auto 50px auto;
+			font-size:150%;
+		}
+
+		.node_divider {
+			border-top-style: dotted;
+		    border-right-style: none;
+		    border-bottom-style: none;
+		    border-left-style: none;
+			border-width: 2px;
+			border-color: #444;
+		}
+
+		#menubar {
+			position:fixed;
+			top:0px;
+			background: #333;
+			width:100%;
+		}
+
+	</style>
+
+	<script>
+
+		var App = App || {};
+
+		$(document).ready( function() {
+
+			// give the game a unique name. This id will be used 
+			// for persistence in localStorage
+			Ivy.gameName = 'Testbed';
+
+			// in this example we will load the Ivy story from
+			// a <div> in html page
+			var contentData = $('#content_nodes').html();
+
+			// process node content into Ivy nodes
+			Ivy.nodes.processGameData(contentData);
+
+			// Here we bind a javascript function to Ivy so it can be called 
+			// from within the story text. Javascript functions can be used to
+			// generate passages of text, or perform other more complex logic
+			// outside the scope of Ivy's own basic scripting capabilities.
+
+			Ivy.registerFunction("testfunc", function(a, b, c){
+				console.log("Here is PROOF that a javascript funcion was called", a, b, c);
+				return "This is the output of the called javascript function. See javascript console for proof."
+			});
+
+			// analysis 
+			//Ivy.analyseNodes();
+
+			// returns a new default state object
+			function getDefaultStateObjects () {
+				return {};
+			}
+			
+			// reload previous session (disabled for testbed)
+			Ivy.load( getDefaultStateObjects() );
+			
+			// or force go to the first node:
+            //Ivy.restart();
+			
+			$("a#start_again_button").click(function(e){
+				console.log( 'goto start' );
+				Ivy.state.nodeHistory.length = 0;
+				Ivy.restart( getDefaultStateObjects() );
+				e.preventDefault();
+				return false;
+			});
+
+			$("a#back_button").click(function(e){
+				Ivy.back();
+				e.preventDefault();
+				return false;
+			});
+
+		});
+
+	</script>
+	
+</head> 
+<body> 
+
+<div id="menubar">
+<a href="file:///Users/lee/Dropbox/dev/Ivy/www/index.html#start_again" id="start_again_button">start again</a> . <a href="file:///Users/lee/Dropbox/dev/Ivy/www/index.html#ivy_back" id="back_button">back</a>
+</div>
+
+	<div id="main-container"><div id="content-div0" class="node-content" style=""><div><p>Welcome to Ivy, a markup language for writing interactive fiction.</p>
+<p>Run the <a href="file:///Users/lee/Dropbox/dev/Ivy/www/index.html#test">test</a></p>
+<p>Try a simple example interactive <a href="file:///Users/lee/Dropbox/dev/Ivy/www/index.html#example_story">story</a>.</p>
+</div></div><div id="content-div0" class="node-content" style=""><div><p><em>Embed another node:</em></p>
+<p>This is the content of a node called 'embed_test_node'</p>
+<p><em>Check evaluated conditional:</em></p>
+<p>Evaluated condition was <strong>true</strong></p>
+<p><em>Check conditional - if, elif, else:</em></p>
+<p>potato was true</p>
+<p><em>Test alt text:</em></p>
+<p>This is a very mysterious sentence.
+This is a very precise sentence.
+This is a very precise sentence.
+This is a very shifty sentence.
+This is a very precise sentence.</p>
+<p><em>Test link:</em></p>
+<p><a href="file:///Users/lee/Dropbox/dev/Ivy/www/index.html#link">Try a test link</a></p>
+<p></p>
+<p><em>Call a bound javascript function:</em></p>
+<p>This is the output of the called javascript function. See javascript console for proof.</p>
+</div></div></div>
+
+
+	<!-- Below is the text of the Ivy story. This can be loaded from a file
+	but has been included in the html page here for convenience.  -->
+
+	<pre id="content_nodes" style="display:none;">
+=== start
+
+{clear}
+
+Welcome to Ivy, a markup language for writing interactive fiction.
+
+Run the [test](+test)
+
+Try a simple example interactive [story](+example_story).
+
+=== start_2
+
+This is part two of start
+
+=== embed_test_node
+
+This is the content of a node called 'embed_test_node'
+
+=== test
+
+*Embed another node:*
+
+{embed embed_test_node}
+
+*Check evaluated conditional:*
+
+{set cond 44}
+{if (1 &lt; cond)}
+Evaluated condition was **true**
+{else} 
+Evaluated condition was **false**
+{endif}
+
+*Check conditional - if, elif, else:*
+
+{setflag turnip	}
+{setflag potato}
+{unset rabbit}
+
+{if turnip}
+turnip was true
+{elif potato}
+potato was true
+{elif !rabbit}
+there is no rabbit
+{else}
+Fallback else - potato and turnip are both false...
+{endif}
+
+{var foo}
+{set foo 10}
+{set bar 444}
+{add bar 30}
+{sub bar 10}
+
+*Test alt text:*
+
+This is a very {alt short|boring|precise|mysterious|shifty} sentence.
+This is a very {alt short|boring|precise|mysterious|shifty} sentence.
+This is a very {alt short|boring|precise|mysterious|shifty} sentence.
+This is a very {alt short|boring|precise|mysterious|shifty} sentence.
+This is a very {alt short|boring|precise|mysterious|shifty} sentence.
+
+*Test link:*
+
+[Try a test link](link)
+
+[Here is a fallback link](~link)
+
+*Call a bound javascript function:*
+
+{func testfunc(11, 22, 33)}
+{if (flagName &gt; 1)}
+{endif}
+
+=== link
+
+Here we are in another section. 
+
+[Go back](+start)
+
+=== bed
+
+I am now in bed
+
+[Go back](+start)
+
+=== example_story
+
+{clear}
+
+There are two doors.
+
+The [red door](+red_door) is rusted, and hot to the touch.
+
+The [blue door](+blue_door) is cool, and coated with condensation.
+
+=== red_door
+
+{clear}
+
+As the red door opens, a blast of hot air pours through, and orange light floods the hallway.
+
+{embed question}
+
+=== blue_door
+
+{clear}
+
+A freezing mist flows out into the hall, and frost immediately begins to form on the floor and the walls.
+
+{embed question}
+
+=== question
+
+A voice booms out from the beyond the door.
+
+"Are you [friend](+friend) or [foe](+foe)?"
+
+=== friend
+
+{clear}
+
+You step through the door and are greeted into the largest and most extravagant celebration in the world. 
+
+You are swept up by the revels and vanish into a realm of pure jollity.
+
+[The End](~start)
+
+=== foe
+
+{clear}
+
+A powerful force descends from above, and you find yourself instantly teleported into the most dismal and obscure oubliette in the underworld.
+
+There is no way out. 
+
+You will be trapped for all eternity.
+
+[The End](~start)
+
+</pre> <!-- end content nodes -->
+	
+
+ 
+</body></html>

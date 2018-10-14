@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es3",
+        "module": "amd",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "out": "./www/js/ivy.js",
+        "sourceMap": true,
+        "sourceRoot" : "./ts"
+    },
+    "files": [
+        "ts/typings/tsd.d.ts",
+        "ts/Ivy.ts"
+    ]
+}

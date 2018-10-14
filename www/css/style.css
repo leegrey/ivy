@@ -1,0 +1,65 @@
+body {
+	font-family: helvetica, sans;
+	font-size:1em;
+	font-weight:300;
+	padding: 0;
+	margin: 0;
+	color:black;
+	background:white;
+}
+
+a, a:visited {
+	text-decoration:none;
+	color:#800;
+	font-weight:500;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+#content_nodes {
+	width:500px;
+	margin:50px auto 0 auto;
+}
+
+pre	{
+	font-family: "Monaco", "Lucida Console", monospace;
+}
+
+#content_nodes div {
+	margin-bottom:50px;
+	background:#f5f5f5;
+}
+
+#main-container {
+	width:500px;
+	margin:0 auto;
+}
+
+.collectable {
+	color:green; 
+	cursor: hand; cursor: pointer;
+}
+
+.collected {
+	text-decoration: line-through;
+	color: darkseagreen;
+	cursor: text;
+}
+
+.node_divider {
+	border-top-style: dotted;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-width: 2px;
+	border-color: #444;
+}
+
+#menubar {
+	position:fixed;
+	top:0px;
+	background: #333;
+	width:100%;
+}
