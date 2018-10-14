@@ -8,6 +8,8 @@ The parser is written in TypeScript, and runs in the browser.
 
 The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/ink), but it supports hyperlink style links within the text (like those in [Twine](https://twinery.org/)), unlike Ink's option-based system where links can only be placed after the body text of a node.
 
+Ivy runs in the browser, and Ivy text can be formatted using Markdown.
+
 ### Why?
 
 Given how many awesome IF technologies are now available, one might ask why anyone would bother making another one. The answer to this is that Ivy has been a slow-burn project in progress for a number of years, developed in short bursts, often during holidays or after being inspired by some superb piece of interactive fiction, narrative games in general, or by trying out some excellent IF tech. Ivy is a love letter to the Interactive Fiction genre, and a personal education in writing a parser.
@@ -23,6 +25,7 @@ For serious IF development, I highly recommend Inkle's [Ink](https://github.com/
 - Conditionals with basic expression evaluation
 - Bind and call javascript functions
 - Persistent state
+- Supports Markdown text formatting
 - MIT License
 
 ### License
@@ -39,7 +42,7 @@ If you want to rebuild the library from source, install the [typescript](https:/
 
 ```tsc --out ./www/js/ivy.js ./ts/Ivy.ts```
 
-### Syntax
+## Syntax
 
 Nodes are indicated with `===` symbol, followed by a node name.
 
