@@ -185,9 +185,9 @@ This example shows the most basic useage, with links from one node to another.
 
 There are two doors.
 
-The `[red door](red_door)` is rusted and hot to the touch.
+The [red door](red_door) is rusted and hot to the touch.
 
-The `[blue door](blue_door)` is cool, and coated with condensation.
+The [blue door](blue_door) is cool, and coated with condensation.
 
 === red_door
 
