@@ -44,7 +44,7 @@ If you want to rebuild the library from source, install the [typescript](https:/
 Nodes are indicated with `===` symbol, followed by a node name.
 
 === name_of_node
-The [red door](some_other_node) leads to another node.
+The `[red door](some_other_node)` leads to another node.
 
 === some_other_node
 This is another node.
@@ -52,85 +52,89 @@ This is another node.
 *Link Types*
 
 Expiring node, link can only be used once (default behaviour)
-[Link text](node_name)
+`[Link text](node_name)`
 
 Non-expiring node, can be traversed many times
-[Link text](+node_name)
+`[Link text](+node_name)`
 
 Explicitly expiring node (for if default is non-expiring)
-[Link text](-node_name)
+`[Link text](-node_name)`
 
 Fallback node, will only display when all expiring nodes are depleted...
-[Link text](~node_name)
+`[Link text](~node_name)`
 
 ### Embed
 
 Embed the content of another node inside the current one:
 
-{embed node_id}
+`{embed node_id}`
 
 ### Flags
 
-{setflag flag_name}         // set true
-{unset flag_name}           // delete flag (will evaluate to false)
+`{setflag flag_name}`         // set true
+`{unset flag_name}`           // delete flag (will evaluate to false)
 
-{set flag_name true}        // set true
-{set flag_name false}       // set false
+`{set flag_name true}`        // set true
+`{set flag_name false}`       // set false
 
-{set flag_name 1}           // set true
-{set flag_name 0}           // set false
+`{set flag_name 1}`           // set true
+`{set flag_name 0}`           // set false
 
 ### Variables
 
-{var variable_name}         // initialise variable to 0
-{set variable_name 10}      // initialise variable to 10
-{unset variable_name}       // delete variable (will evaluate to 0)
+`{var variable_name}`         // initialise variable to 0
+`{set variable_name 10}`      // initialise variable to 10
+`{unset variable_name}`       // delete variable (will evaluate to 0)
 
 ### Basic Math
 
-{inc variable_name}          // increment variable by 1
-{dec variable_name}         // decrement increment by 1
-{add variable_name 10}      // add 10 to variable
-{sub variable_name 10}      // subtract 10 from variable
+`{inc variable_name}`          // increment variable by 1
+`{dec variable_name}`         // decrement increment by 1
+`{add variable_name 10}`      // add 10 to variable
+`{sub variable_name 10}`      // subtract 10 from variable
 
 ### Conditionals
 
-{if flag_name}  
+`{if flag_name}`  
 This text will be displayed if flag is true
-{elif flag2_name}
+`{elif flag2_name}`
 This text will be displayed if flag2 is true
-{else}
+`{else}`
 This will be displayed if flag and flag2 are both false
-{endif}
+`{endif}`
 
 ### Conditional Expressions
 
-{if (var_name >= 5)} 
+`{if (var_name >= 5)}`
 Display text...
-{elif (var_name == 55)}
+`{elif (var_name == 55)}`
 Display text...
-{endif}
+`{endif}`
 
 ### Clear the Screen
 
 To clear the text of the story displayed so far:
 
-{clear}
+`{clear}`
 
 ### Calling custom functions
 
-{if func myCustomFunction(arg1, arg2)}
+`{if func myCustomFunction(arg1, arg2)}`
 
 Attach custom function to Ivy (within javascript context):
-Ivy.addFunction(function(argumentString){});
+`Ivy.addFunction(function(argumentString){});`
 
 The arguments are sent to the function as a string:
 
-{func myCustomFunction(20, 23, "blah", variable_name)}
+`{func myCustomFunction(20, 23, variable_name)}`
 
+The javascript function has a matching signature: 
+
+```
 function myCustomFunction (a, b, c) {
-    console.log("arguments:", a, b, c); // 20, 23, "blah", variable_name
+    console.log("arguments:", a, b, c);
 }
+```
 
 ## Example Story Script
 
@@ -141,9 +145,9 @@ This example shows the most basic useage, with links from one node to another.
 
 There are two doors.
 
-The [red door](red_door) is rusted and hot to the touch.
+The `[red door](red_door)` is rusted and hot to the touch.
 
-The [blue door](blue_door) is cool, and coated with condensation.
+The `[blue door](blue_door)` is cool, and coated with condensation.
 
 === red_door
 
