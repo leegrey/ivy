@@ -53,16 +53,20 @@ This is another node.
 
 ### Link Types
 
-Expiring node, link can only be used once (default behaviour)
+Expiring node, link can only be used once (default behaviour):
+
 `[Link text](node_name)`
 
-Non-expiring node, can be traversed many times
+Non-expiring node, can be traversed many times:
+
 `[Link text](+node_name)`
 
-Explicitly expiring node (for if default is non-expiring)
+Explicitly expiring node (for if default is non-expiring):
+
 `[Link text](-node_name)`
 
 Fallback node, will only display when all expiring nodes are depleted...
+
 `[Link text](~node_name)`
 
 ### Embed
@@ -74,43 +78,61 @@ Embed the content of another node inside the current one:
 ### Flags
 
 `{setflag flag_name}`         - set true
+
 `{unset flag_name}`           - delete flag (will evaluate to false)
 
 `{set flag_name true}`        - set true
+
 `{set flag_name false}`       - set false
 
 `{set flag_name 1}`           - set true
+
 `{set flag_name 0}`           - set false
 
 ### Variables
 
 `{var variable_name}`         - initialise variable to 0
+ 
 `{set variable_name 10}`      - initialise variable to 10
+
 `{unset variable_name}`       - delete variable (will evaluate to 0)
 
 ### Basic Math
 
 `{inc variable_name}`         - increment variable by 1
+
 `{dec variable_name}`         - decrement increment by 1
+
 `{add variable_name 10}`      - add 10 to variable
+
 `{sub variable_name 10}`      - subtract 10 from variable
 
 ### Conditionals
 
 `{if flag_name}`  
+
 This text will be displayed if flag is true
+
 `{elif flag2_name}`
+
 This text will be displayed if flag2 is true
+
 `{else}`
+
 This will be displayed if flag and flag2 are both false
+
 `{endif}`
 
 ### Conditional Expressions
 
 `{if (var_name >= 5)}`
+
 Display text...
+
 `{elif (var_name == 55)}`
+
 Display text...
+
 `{endif}`
 
 ### Variants within text
