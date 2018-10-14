@@ -195,3 +195,10 @@ A freezing mist flows out into the hall, and frost immediately begins to form on
 ...
 
 ```
+
+## Author
+
+Ivy was written in New Zealand, by Lee Grey.
+
+[@mothteeth](https://twitter.com/mothteeth)
+
