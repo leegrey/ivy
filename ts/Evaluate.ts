@@ -13,7 +13,7 @@ module Ivy.Commands {
         }
     }
 
-    // TODO: suppor && and || by splitting into multiple evaluations... (if I really need to????)
+    // TODO: suppor && and || by splitting into multiple evaluations.. (?)
     // NOTE: the single character comparitors need to 
     // go at the end to avoid false positive
     // (same goes for strings containing eachother)

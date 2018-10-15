@@ -1,5 +1,7 @@
 module Ivy {
 
+	// NOTE: Incomplete / Work in progress
+
 	export class Inventory {
 		
 		items: any = {};

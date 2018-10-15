@@ -68,6 +68,14 @@
 			// for persistence in localStorage
 			Ivy.gameName = 'Testbed';
 
+			// let's disable the default link behaviour for this story.
+			// We don't want any of our links to expire 
+			Ivy.config.linksExpireAfterFirstUse = false;
+	
+			// Should nodes be stitched to the end of the previous node in a continuous text? [Default = `true`]
+			// Use this to disable the automatic page scrolling behaviour
+			// Ivy.config.useStitchAndScroll = false;
+			
 			// in this example we will load the Ivy story from
 			// a <div> in html page
 			var contentData = $('#content_nodes').html();
@@ -137,17 +145,30 @@
 
 {clear}
 
-Welcome to Ivy, a markup language for writing interactive fiction.
+# Ivy
 
-Run the [Test](+test).
+Welcome to **Ivy**, a markup language for writing interactive fiction.
 
-Try a simple example interactive [story](+example_story).
+Run the [Test](test).
+
+Try a simple example interactive [story](example_story).
 
 === embed_test_node
 
 This is the content of a node called 'embed_test_node'
 
 === test
+
+## Test
+
+**bold text**
+
+*italic text*
+
+_also italic_
+
+~~strikethrough~~
+
 
 *Embed another node:*
 

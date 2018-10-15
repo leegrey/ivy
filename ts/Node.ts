@@ -28,10 +28,8 @@ module Ivy {
 			
 			var links:{$link:any, kind:string, url:string, visited:number}[] = [];
 
-			// TODO: Add a global override expiring flag for games that
-			// really dont want that behaviour. This can be per node.
-			// start false and become true below if unexpired is found
 			var hasUnexpiredLinks = false;		
+
 			// Pre collect all the links and record if there are unexpired ones
 			// so we can decide how to handle fallback links	
 			$content.find('a').each(function(){
@@ -76,8 +74,14 @@ module Ivy {
 				} else if (link.kind == '~') {
 					if (hasUnexpiredLinks) link.$link.remove();
 				} else {
-					// default behaviour (expire after one visit)
-					if (link.visited > 0) link.$link.replaceWith(link.$link.html());
+
+					// use the default behaviour defined by Ivy.config
+
+					var linksExpire = Ivy.config.linksExpireAfterFirstUse;
+
+					if (linksExpire && link.visited > 0) {
+						link.$link.replaceWith(link.$link.html());
+					}
 				}
 			}
 

@@ -10,6 +10,32 @@ The syntax is influenced by Inkle's IF language, [Ink](https://github.com/inkle/
 
 Ivy runs in the browser, and Ivy text can be formatted using [Markdown](https://daringfireball.net/projects/markdown/syntax).
 
+## Example Story Script
+
+This example shows the most basic usage, with links from one node to another.
+
+```
+=== start
+
+There are two doors.
+
+The [red door](red_door) is rusted and hot to the touch.
+
+The [blue door](blue_door) is cool, and coated with condensation.
+
+=== red_door
+
+As the red door opens, a blast of hot air pours through, and orange light floods the hallway.
+
+...
+
+=== blue_door
+
+A freezing mist flows out into the hall, and frost immediately begins to form on the floor and the walls.
+
+...
+
+```
 
 ### Try a Demo
 
@@ -155,6 +181,20 @@ To clear the text of the story displayed so far:
 
 `{clear}`
 
+### Configuration
+
+Ivy's behaviour can be configured via the `Ivy.config` object. (From within the javascript context.)
+
+Should nodes be stitched to the end of the previous node in a continuous text? [Default = `true`]
+
+`Ivy.config.useStitchAndScroll = true / false;`
+
+When visiting nodes multiple times, should previously visited links be automatically deactivated? [Default = `true`]
+
+`Ivy.config.linksExpireAfterFirstUse = true / false;`
+		
+
+
 ### Calling custom JavaScript functions
 
 Javascript functions can be bound to custom Ivy commands using the `Ivy.registerFunction()` function.
@@ -179,33 +219,6 @@ The javascript function has a matching signature:
 function myCustomFunction (a, b, c) {
     console.log("arguments:", a, b, c);
 }
-```
-
-## Example Story Script
-
-This example shows the most basic useage, with links from one node to another.
-
-```
-=== start
-
-There are two doors.
-
-The [red door](red_door) is rusted and hot to the touch.
-
-The [blue door](blue_door) is cool, and coated with condensation.
-
-=== red_door
-
-As the red door opens, a blast of hot air pours through, and orange light floods the hallway.
-
-...
-
-=== blue_door
-
-A freezing mist flows out into the hall, and frost immediately begins to form on the floor and the walls.
-
-...
-
 ```
 
 ## Author

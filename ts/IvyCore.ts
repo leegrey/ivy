@@ -1,9 +1,19 @@
 module Ivy {
 	
 	// Root level objects:
+
+	// Configure Ivy behaviour
 	export var config:any = {
-		useMarkdown : true,
-		useStitchAndScroll : true
+
+		// render each node below the last, in a continuous text
+		useStitchAndScroll : true,
+		// should links expire after one use (if a node is visited again)
+		linksExpireAfterFirstUse : true,
+		// process nodes through the markdown interpreter		
+		// @deprecated 
+		// (NOTE: Don't turn this off! Currently, links are processed through 
+		// the markdown preprocessor, so Ivy will not work without it!)
+		useMarkdown : true
 	};
 	
 	// The game name is used to identify the persistent data

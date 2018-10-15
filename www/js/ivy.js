@@ -32,7 +32,7 @@ var Ivy;
             }
         }
         Commands.evaluateValueArgument = evaluateValueArgument;
-        // TODO: suppor && and || by splitting into multiple evaluations... (if I really need to????)
+        // TODO: suppor && and || by splitting into multiple evaluations.. (?)
         // NOTE: the single character comparitors need to 
         // go at the end to avoid false positive
         // (same goes for strings containing eachother)
@@ -137,7 +137,7 @@ var Ivy;
             // }
             return commands;
         }
-        var ProcessTextSource = /** @class */ (function () {
+        var ProcessTextSource = (function () {
             function ProcessTextSource() {
                 this.location = 0;
                 this.commands = [];
@@ -262,7 +262,6 @@ var Ivy;
                 case "func":
                     process_func(commandInfo, source);
                     break;
-                // TODO:
                 case "embed":
                     process_embed(commandInfo, source);
                     break;
@@ -322,7 +321,6 @@ var Ivy;
             // hang on... shouldn't this work already ?
             //eatCommandsUntilToken(source, "endif");
         }
-        // TODO:: generically evaluate, including branching to eval and func conditions
         function evaluate_condition(argumenString) {
             var conditionString = Ivy.findContentInBrackets(argumenString);
             if (conditionString != null) {
@@ -360,8 +358,6 @@ var Ivy;
                 return;
             }
             var conditionalResult = false;
-            // TODO: should I pass the entire command?
-            // might need to if I want to support {if ! flag}
             var conditionalName = commandInfo.tokens[1];
             var conditionalResult = evaluate_condition(commandInfo.argumentString);
             //console.log("conditionalResult of:", conditionalName + ":", conditionalResult);
@@ -446,7 +442,7 @@ var Ivy;
 })(Ivy || (Ivy = {})); // end Ivy.Parse
 var Ivy;
 (function (Ivy) {
-    var Node = /** @class */ (function () {
+    var Node = (function () {
         function Node(id, content) {
             if (content === void 0) { content = null; }
             this.outputs = null;
@@ -470,9 +466,6 @@ var Ivy;
         // not to show the actual node id on rollover (spoiler danger)
         Node.prototype.processLinks = function ($content) {
             var links = [];
-            // TODO: Add a global override expiring flag for games that
-            // really dont want that behaviour. This can be per node.
-            // start false and become true below if unexpired is found
             var hasUnexpiredLinks = false;
             // Pre collect all the links and record if there are unexpired ones
             // so we can decide how to handle fallback links	
@@ -520,9 +513,11 @@ var Ivy;
                         link.$link.remove();
                 }
                 else {
-                    // default behaviour (expire after one visit)
-                    if (link.visited > 0)
+                    // use the default behaviour defined by Ivy.config
+                    var linksExpire = Ivy.config.linksExpireAfterFirstUse;
+                    if (linksExpire && link.visited > 0) {
                         link.$link.replaceWith(link.$link.html());
+                    }
                 }
             }
             // add click events to the active links
@@ -621,7 +616,7 @@ var Ivy;
 })(Ivy || (Ivy = {}));
 var Ivy;
 (function (Ivy) {
-    var NodeMap = /** @class */ (function () {
+    var NodeMap = (function () {
         function NodeMap() {
             this.nodes = {};
             // used for aliasing the ids so prevent mouse-over showing id in browser
@@ -658,9 +653,12 @@ var Ivy;
             return this.nodes[id];
         };
         /**
-         * Process HTML in the *default format* into the NodeMap.<br/>
+         * @obsolete
+         * Process HTML in the into the NodeMap.<br/>
          * @argument - a jquery element ( ie selected with $('#id_of_element') )
          * Produces a logic-less map.
+         * NOTE: This is an obsolete function from an ancient version of Ivy,
+         * where the source of the story was HTML
          */
         NodeMap.prototype.addNodesFromDOM = function ($element) {
             var that = this;
@@ -749,7 +747,8 @@ var Ivy;
 })(Ivy || (Ivy = {}));
 var Ivy;
 (function (Ivy) {
-    var Inventory = /** @class */ (function () {
+    // NOTE: Incomplete / Work in progress
+    var Inventory = (function () {
         function Inventory() {
             this.items = {};
         }
@@ -788,9 +787,17 @@ var Ivy;
 var Ivy;
 (function (Ivy) {
     // Root level objects:
+    // Configure Ivy behaviour
     Ivy.config = {
-        useMarkdown: true,
-        useStitchAndScroll: true
+        // render each node below the last, in a continuous text
+        useStitchAndScroll: true,
+        // should links expire after one use (if a node is visited again)
+        linksExpireAfterFirstUse: true,
+        // process nodes through the markdown interpreter		
+        // @deprecated 
+        // (NOTE: Don't turn this off! Currently, links are processed through 
+        // the markdown preprocessor, so Ivy will not work without it!)
+        useMarkdown: true
     };
     // The game name is used to identify the persistent data
     // in the local storage. Therefore it must be unique per game

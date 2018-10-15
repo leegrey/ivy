@@ -48,9 +48,12 @@ module Ivy {
 		}
 		
 		/**
-		 * Process HTML in the *default format* into the NodeMap.<br/>
+		 * @obsolete
+		 * Process HTML in the into the NodeMap.<br/>
 		 * @argument - a jquery element ( ie selected with $('#id_of_element') )
 		 * Produces a logic-less map.
+		 * NOTE: This is an obsolete function from an ancient version of Ivy, 
+		 * where the source of the story was HTML
 		 */
 		addNodesFromDOM( $element ) {
 			
